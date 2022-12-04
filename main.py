@@ -5,7 +5,7 @@ from threading import Thread
 from pynput import keyboard
 
 items = dict()
-maxVal = 5000
+maxVal = 50
 
 
 def speak():
