@@ -48,8 +48,8 @@ def logged():
     main = Tk()
     main.withdraw()
     for i in range(maxVal):
-        x = random.randint(-20, 1000)
-        y = random.randint(0, 600)
+        x = random.randint(0, 1920)
+        y = random.randint(0, 1080)
         root[i] = Toplevel(main)
         bgIMG[i] = PhotoImage(file=resource_path('log.png'))
         bgCanvas[i] = Canvas(root[i], width=400, height=200)
