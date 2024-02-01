@@ -1,8 +1,24 @@
 from tkinter import *
-import random
-import pyttsx3
+import random,os
+try:
+    import pyttsx3
+except:
+    os.system("pip install pyttsx3")
+    import pyttsx3
 from threading import Thread
-from pynput import keyboard
+try:
+    from pynput import keyboard
+except:
+    os.system("pip install pynput")
+    from pynput import keyboard
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 items = dict()
 maxVal = 50
@@ -35,7 +51,7 @@ def logged():
         x = random.randint(-20, 1000)
         y = random.randint(0, 600)
         root[i] = Toplevel(main)
-        bgIMG[i] = PhotoImage(file='log.png')
+        bgIMG[i] = PhotoImage(file=resource_path('log.png'))
         bgCanvas[i] = Canvas(root[i], width=400, height=200)
         bgCanvas[i].pack()
         bgCanvas[i].create_image(0, 0, image=bgIMG[i], anchor='nw')
